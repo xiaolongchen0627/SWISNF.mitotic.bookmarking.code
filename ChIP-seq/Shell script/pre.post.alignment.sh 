@@ -1,0 +1,31 @@
+'''
+Currently Loaded Modules:
+  1) homer/4.9.1        6) samtools/0.1.18     11) python/2.7.2     16) vcftools/0.1.15     21) svn/1.7.20-rhel7   26) bowtie2/2.3.5.1  31) R/4.0.2
+  2) trimgalore/0.4.4   7) ucsc/031411-legacy  12) bcftools/1.2     17) gatk/3.4            22) star/2.3.0e        27) gcc/8.3.0
+  3) python/3.7.0       8) python/3.5.2        13) bwa/0.7.15       18) fastq_screen/0.9.5  23) postgresql/9.4.7   28) proj/v6
+  4) cutadapt/1.2.1     9) cap3/041614         14) bedtools/2.17.0  19) fastqc/0.11.5       24) java/1.8.0_66      29) gdal/3.1.2
+  5) perl/5.10.1       10) blat/35             15) htslib/1.2.1     20) subread/1.5.1       25) parallel/20161022  30) geos/3.8.1
+
+'''
+
+WORKDIR="/home/xchen2/SWISNF/Xiaolong/ChIP/"
+FASTQINPUT="/home/xchen2/SWISNF/ChIP/FASTQ/"
+
+
+####### Trim adaptor
+TRIMMEDFQ="/home/xchen2/SWISNF/ChIP/FASTQ/TRIMMED"
+for i in `ls $FASTQINPUT/*R1*.gz ` ;do bsub -J trimedfq trim_galore --paired --fastqc --gzip $i ${i/R1/R2} ; done 
+
+####### Map to DM6 genome to calculated spike-in 
+cd $TRIMMEDFQ
+
+for R1 in *.R1.fq.gz ;do 
+sampleName=${i/.R1.fq.gz};
+R2=${R1/R1/R2};
+mm10=$(cat /home/xchen2/SWISNF/Xiaolong/chrs.mm10.lst |tr "\n" " "); 
+echo "
+bowtie2 -x /rgs01/applications/hpcf/authorized_apps/cab/Automation/REF/Drosophila_melanogaster/Ensembl/r97/bowtie2-index/v2.3.5.1/Drosophila_melanogaster.BDGP6.22.dna.toplevel -1 $R1 -2 $R2 -S $sampleName.dm6.sam ; samtools view -Sb -F 4 $sampleName.dm6.sam > $sampleName.dm6.bam 
+samtools sort $sampleName.dm6.bam $sampleName.dm6.sorted
+samtools index $sampleName.dm6.sorted
+samtools view -q 1 -b $sampleName.dm6.sorted |samtools flagstat - > $sampleName.dm6.flagstat
+"  >$sample.sh ; done
