@@ -17,5 +17,9 @@ echo "
 bowtie2 -x /home/xchen2/SWISNF/Xiaolong/E.Coli -1 $R1 -2 $R2 -S $sampleName.Ecoli.sam ; samtools view -Sb -F 4 $sampleName.Ecoli.sam > $sampleName.Ecoli.bam 
 samtools sort $sampleName.Ecoli.bam $sampleName.Ecoli.sorted
 samtools index $sampleName.Ecoli.sorted
-samtools view -q 1 -b $sampleName.Ecoli.sorted |samtools flagstat - > $sampleName.Ecoli.flagstat
+samtools flagstat $sampleName.Ecoli.sorted.bam > $sampleName.Ecoli.sorted.bam.flagstat
+samtools view -q 1 -b $sampleName.Ecoli.sorted |samtools flagstat - > $sampleName.Ecoli.bam.flagstat
 "  >$sample.sh ; done 
+
+###### Submit the job 
+for i in *.sh ; do bsub -o flagstat.out -e flgstat.err bash $i 
