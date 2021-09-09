@@ -10,4 +10,7 @@ ucsc/031411-legacy
 python/3.7.0
 cutadapt/1.2.1   
 bedtools/2.17.0  
-fastqc/0.11.5       
+fastqc/0.11.5
+macs2/2.1.1   
+biobambam2
+module load python/3.7.0    
