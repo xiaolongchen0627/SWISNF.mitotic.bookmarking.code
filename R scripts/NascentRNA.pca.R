@@ -36,7 +36,7 @@ pca <- prcomp(t(rlog),scale. = T)
 # autoplot(pca)
 pca1 <- merge(data.frame(Name=rownames(pca$x),data.frame(pca$x)),sf[,c(1,8,9,10,11)],by='Name')
 pca1$time <-factor(pca1$time,level=c('asyn','0','45','90','180','240'))
-pdf('NascentRNA.pca.pdf',width=10,8)
+pdf('NascentRNA.pca.pdf',width=10,8,colormode = 'cmyk')
 ggplot(pca1[pca1$batch!='1',],aes(x=PC1,y=PC2,col=time, shape=group))+geom_point() +
   geom_text_repel(aes(label=gsub(gsub(Name,pa='_rep.*',rep=''),pa='^(\\d*)_',rep='')))+
   theme_bw()+scale_color_aaas()
