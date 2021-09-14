@@ -155,3 +155,6 @@ for(i in dataname){
   dev.off()
 
 }
+
+
+save.image('CnR.bookmarkers.Rdata')
