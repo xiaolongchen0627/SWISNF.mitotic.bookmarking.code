@@ -16,7 +16,8 @@ pc <- fread('mm10.proteincoding.gene.bed') ### Protein_coding gene from gencode 
 # chr start end geneName ensembl_gene_ID strand
 
 time <- 90
-sf.min90 <- subset(sf,time==90)
+#time <- 45 ####### same codes for 45 min
+sf.min90 <- subset(sf,time == time)
 counts.min90 <- DESeqDataSetFromHTSeqCount(sample=sf.min90,directory = dir , design = formula(~ group))
 sizeFactors(counts.min90) <- sf.min90$sf
 dds.min90 <- DESeq(counts.min90)

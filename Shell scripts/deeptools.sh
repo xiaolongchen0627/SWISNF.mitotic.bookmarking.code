@@ -23,3 +23,13 @@ done < computeMatrix.meta.file.txt
 # plot heatmap 
 for i in computeMatrix/*.plot
 plotHeatmap -m $i --dpi 300 --heatmapWidth 7 --whatToShow "heatmap and colorbar" --colorMap Reds --outFileName $i.pdf
+
+############## 
+##multiBigwigSummary for ESRRB , EZH2 and SOX2 ChIP in SMARCE1-MD cells 
+##############
+
+cd bookmarkers.SMARCE1.MD
+
+multiBigwigSummary BED-file -b -o multibw/ESRRB.npz --BED ESRRB.3types.peaks.bed --outRawCounts multibw/ESRRB.fpkm --smartLabels -p1
+multiBigwigSummary BED-file -b -o multibw/EZH2.npz --BED EZH2.3types.peaks.bed --outRawCounts multibw/EZH2.fpkm --smartLabels -p1
+multiBigwigSummary BED-file -b -o multibw/SOX2.npz --BED SOX2.3types.peaks.bed --outRawCounts multibw/SOX2.fpkm --smartLabels -p1
