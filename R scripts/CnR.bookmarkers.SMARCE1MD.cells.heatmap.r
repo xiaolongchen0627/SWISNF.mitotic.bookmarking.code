@@ -21,7 +21,7 @@ dev.off()
 
 fpkm <- all.EZH2;fc <- 1;
 fpkm[,6:13] <- log2(fpkm[,6:13]);fpkm <- fpkm[order(fpkm$MDmean),];fpkm[,6:13][fpkm[,6:13]>=5] <- 5;fpkm[,6:13][fpkm[,6:13]<1] <- 0
-de=fpkm[fpkm$FDR<0.01&fpkm$logFC <= -1* fc&fpkm$pvalue<0.01,]
+de <- fpkm[fpkm$FDR<0.01&fpkm$logFC <= -1* fc&fpkm$pvalue<0.01,]
 print(dim(de));print(dim(de[de$R42A<3,]))
 #ph=pheatmap(de[,6:13],cluster_cols=T,cluster_rows=T,show_rownames=F,show_colnames=T,silent = TRUE,kmeans=2)
 #ct=cutree(ph$tree_row,k=2)
