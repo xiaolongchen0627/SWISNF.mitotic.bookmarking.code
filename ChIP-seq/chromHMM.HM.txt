@@ -6,7 +6,6 @@ Asyn	H3K4me1	Asyn_H3K4me1_1884806_B01_S22_mm10.rmdupq1.bam	Asyn_Input_1884805_A0
 Asyn	H3K9me3	Asyn_H3K9me3_1884807_C01_S23_mm10.rmdupq1.bam	Asyn_Input_1884805_A01_S21_mm10.rmdupq1.bam
 Asyn	H3K4me1	Asyn_H3K4me1_1940855_B01_S20_mm10.rmdupq1.bam	Asyn_Input_1940854_A01_S19_mm10.rmdupq1.bam
 Asyn	H3K9me3	Asyn_H3K9me3_1940856_C01_S21_mm10.rmdupq1.bam	Asyn_Input_1940854_A01_S19_mm10.rmdupq1.bam
-Asyn	H3K4me1	Asyn_H3K4me1_1951683_mm10.rmdupq1.bam	Asyn_Input_1951682_mm10.rmdupq1.bam
 Asyn	H3K9me3	Asyn_H3K9me3_1951684_mm10.rmdupq1.bam	Asyn_Input_1951682_mm10.rmdupq1.bam
 Asyn	H3K27ac	Asyn_H3K27ac_1951697_mm10.rmdupq1.bam	Asyn_Input_1951694_mm10.rmdupq1.bam
 Asyn	H3K27me3	Asyn_H3K27me3_1951696_mm10.rmdupq1.bam	Asyn_Input_1951694_mm10.rmdupq1.bam
@@ -30,7 +29,6 @@ Mit	H3K4me1	Mit_H3K4me1_1884814_B02_S30_mm10.rmdupq1.bam	Mit_Input_1884813_A02_S
 Mit	H3K9me3	Mit_H3K9me3_1884815_C02_S31_mm10.rmdupq1.bam	Mit_Input_1884813_A02_S29_mm10.rmdupq1.bam
 Mit	H3K4me1	Mit_H3K4me1_1940864_C02_S29_mm10.rmdupq1.bam	Mit_Input_1940863_B02_S28_mm10.rmdupq1.bam
 Mit	H3K9me3	Mit_H3K9me3_1940865_D02_S30_mm10.rmdupq1.bam	Mit_Input_1940863_B02_S28_mm10.rmdupq1.bam
-Mit	H3K4me1	Mit_H3K4me1_1951689_mm10.rmdupq1.bam	Mit_Input_1951688_mm10.rmdupq1.bam
 Mit	H3K9me3	Mit_H3K9me3_1951690_mm10.rmdupq1.bam	Mit_Input_1951688_mm10.rmdupq1.bam
 Mit	H3K27ac	Mit_H3K27ac_1951702_mm10.rmdupq1.bam	Mit_Input_1951699_mm10.rmdupq1.bam
 Mit	H3K27me3	Mit_H3K27me3_1951701_mm10.rmdupq1.bam	Mit_Input_1951699_mm10.rmdupq1.bam
