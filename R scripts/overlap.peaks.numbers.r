@@ -5,6 +5,10 @@ library(gridExtra)
 
 aaas.color_pallete <- pal_aaas(alpha=0.5)(10)
 
+###########
+## calculated overlapped peaks in prior using bedtools with 1 bp cutoff
+###########
+
 smarca4.overlap <- plot(euler(c(Mit=382,Asyn=14362,"Mit&Asyn"=1890)), 
     fill=aaas.color_pallete[1:2],
     legend=NULL,

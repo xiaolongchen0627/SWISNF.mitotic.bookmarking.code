@@ -127,3 +127,11 @@ tmp$Description <- factor(tmp$Description,levels = tmp$Description)
 pdf('BulkRNA.ES.go.bar.esmddown.selected.pdf',height=5,8,colormodel = 'cmyk')
 ggplot(tmp,aes(y=Count,x=Description,fill=p.adjust))+geom_bar(stat='identity')+scale_fill_gradient(high='blue',low='red')+coord_flip()+theme(axis.text.x = element_text(angle=90))+theme_bw()
 dev.off()
+
+pluri=fread('GO.0019827.genes.txt')
+dim(reses.pc[(reses.pc$pvalue>0.05||abs(reses.pc$log2FoldChange)<1)&rownames(reses.pc)%in%pluri$`Gene name`,])
+pluri=mean.2es.rlog[pluri$`Gene name`,]
+pluri=melt(pluri);pluri=data.table(pluri);pluri[,c('type','cells'):=tstrsplit(Var2,'_')]
+pdf('Pluripotent.genes.GO0019827.boxplot.pdf',width=7,height=5,colormodel = 'cmyk')
+ggplot(pluri,aes(x=Var2,y=value,color=type))+geom_boxplot()+theme_bw()+scale_color_aaas()+ylab('mean of rlog')+xlab('')
+dev.off()
